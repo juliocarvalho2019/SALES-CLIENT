@@ -20,8 +20,10 @@ private val moshi = Moshi.Builder()
 private val okHttpClient = OkHttpClient.Builder()
     .connectTimeout(60, TimeUnit.SECONDS)
     .readTimeout(60, TimeUnit.SECONDS)
-   // .addInterce/ptor(OauthTokenInterceptor())
-   // .authenticator(OauthTokenAuthenticator())
+    //intercepta todas as requisições para inserir o token de acesso, caso ele exista e não esteja expirado.
+    .addInterceptor(OauthTokenInterceptor())
+    //só entra em ação caso resposta seja HTTP 401(Uanuthorized)
+    .authenticator(OauthTokenAuthenticator())
     .build()
 
 private val retrofit = Retrofit.Builder()
