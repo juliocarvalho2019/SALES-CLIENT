@@ -15,8 +15,5 @@ fun bindProductsList(recyclerView: RecyclerView, products: List<Product>?) {
 
 @BindingAdapter("productPrice")
 fun bindProductPrice(txtProductPrice: TextView, productPrice: Double?) {
-    productPrice?.let {
-        val price = "$ " + "%.2f".format(productPrice)
-        txtProductPrice.text = price
-    }
+    txtProductPrice.text = productPrice?.let {"$ " + "%.2f".format(it)}
 }

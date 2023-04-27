@@ -26,6 +26,8 @@ class ProductsListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.i(TAG, "Creating ProductsListFragment")
+
         val binding = FragmentProductsListBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.productListViewModel = productListViewModel
