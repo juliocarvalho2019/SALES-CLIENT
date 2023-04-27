@@ -1,3 +1,5 @@
+package br.com.carvalho.salesclient.product
+
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
