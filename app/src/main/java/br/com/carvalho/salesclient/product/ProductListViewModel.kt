@@ -12,15 +12,13 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 private const val TAG = "ProductListViewModel"
-private var viewModelJob = Job()
-private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
-
-private val _products = MutableLiveData<List<Product>>()
-val products: LiveData<List<Product>>
-    get() = _products
-
-
 class ProductListViewModel : ViewModel() {
+    private var viewModelJob = Job()
+    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
+
+    private val _products = MutableLiveData<List<Product>>()
+    val products: LiveData<List<Product>>
+        get() = _products
 
     init {
         getProducts()

@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val viewModel = ViewModelProvider(this).get(ProductListViewModel::class.java)
+       // val viewModel = ViewModelProvider(this).get(ProductListViewModel::class.java)
 
     }
 }
