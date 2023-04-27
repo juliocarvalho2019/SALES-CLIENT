@@ -11,8 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import br.com.carvalho.salesclient.databinding.FragmentProductsListBinding
-import br.com.carvalho.salesclient.product.ProductAdapter
-import br.com.carvalho.salesclient.product.ProductListViewModel
 
 private const val TAG = "ProductsListFragment"
 
@@ -33,9 +31,14 @@ class ProductsListFragment : Fragment() {
         binding.productListViewModel = productListViewModel
         val itemDecor = DividerItemDecoration(context, VERTICAL)
         binding.rcvProducts.addItemDecoration(itemDecor);
+
+        //captura o evento de clique do usuário em um item da lista de produtos
         binding.rcvProducts.adapter = ProductAdapter(ProductAdapter.ProductClickListener
         {
             Log.i(TAG, "Product selected: ${it.name}")
+
+            this.findNavController()
+                .navigate(ProductsListFragmentDirections.actionShowProductDetail(it.code))
         })
         return binding.root
     }
