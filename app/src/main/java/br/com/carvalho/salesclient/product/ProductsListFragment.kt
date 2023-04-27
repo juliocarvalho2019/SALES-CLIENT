@@ -41,6 +41,15 @@ class ProductsListFragment : Fragment() {
                 .navigate(ProductsListFragmentDirections.actionShowProductDetail(it.code))
         })
         return binding.root
+
+        binding.productsRefresh.setOnRefreshListener {
+            Log.i(TAG, "Refreshing products list")
+            productListViewModel.refreshProducts()
+            binding.productsRefresh.isRefreshing = false
+        }
+
     }
+
+
 
 }

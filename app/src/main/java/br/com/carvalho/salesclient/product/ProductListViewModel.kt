@@ -12,6 +12,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 private const val TAG = "ProductListViewModel"
+
 class ProductListViewModel : ViewModel() {
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
@@ -41,6 +42,10 @@ class ProductListViewModel : ViewModel() {
 
         }
         Log.i(TAG, "Products list requested")
+    }
+
+    fun refreshProducts() {
+        getProducts()
     }
 
 
