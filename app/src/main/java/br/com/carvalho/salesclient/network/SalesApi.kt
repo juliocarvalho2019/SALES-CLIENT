@@ -38,6 +38,9 @@ interface SalesApiService {
     @GET("api/products")
     fun getProducts(): Deferred<List<Product>>
 
+    @GET("api/products/{code}")
+    fun getProductByCode(@Path("code") code: String): Deferred<Product>
+
     @POST("oauth/token")
     @FormUrlEncoded
     fun getToken(
